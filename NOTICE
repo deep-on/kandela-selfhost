@@ -1,0 +1,94 @@
+memory-mcp-server
+Copyright (c) 2025-2026 Deep-ON Inc.
+
+This product includes software developed by third parties.
+
+========================================================================
+LGPL v3 Licensed Dependencies
+========================================================================
+
+The following dependencies are licensed under the GNU Lesser General Public
+License v3.0 (LGPL-3.0). They are used as-is without modification via
+dynamic linking (Python import). Source code for these libraries is available
+from their respective repositories.
+
+- kiwipiepy (Korean morphological analyzer)
+  Copyright (c) Minchul Lee
+  License: LGPL-3.0
+  Source: https://github.com/bab2min/kiwipiepy
+
+- kiwipiepy_model (Model data for kiwipiepy)
+  Copyright (c) Minchul Lee
+  License: LGPL-3.0
+  Source: https://github.com/bab2min/kiwipiepy
+
+- python-telegram-bot (Telegram Bot API wrapper)
+  Copyright (c) python-telegram-bot contributors
+  License: LGPL-3.0-only
+  Source: https://github.com/python-telegram-bot/python-telegram-bot
+
+In accordance with LGPL v3, users may replace these libraries with
+compatible alternatives. These libraries are installed as separate Python
+packages and are not statically linked into this software.
+
+========================================================================
+Apache 2.0 Licensed Dependencies
+========================================================================
+
+- ChromaDB (Vector database)
+  Copyright (c) Chroma Inc.
+  License: Apache-2.0
+  Source: https://github.com/chroma-core/chroma
+
+- sentence-transformers (Sentence embedding framework)
+  Copyright (c) UKP Lab, Technische Universität Darmstadt
+  License: Apache-2.0
+  Source: https://github.com/UKPLab/sentence-transformers
+
+- paraphrase-multilingual-MiniLM-L12-v2 (Embedding model)
+  Copyright (c) Microsoft Corporation / UKP Lab
+  License: Apache-2.0
+  Source: https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+- rank-bm25 (BM25 keyword search)
+  Copyright (c) D. Brown
+  License: Apache-2.0
+  Source: https://github.com/dorianbrown/rank_bm25
+
+- transformers (Hugging Face Transformers)
+  Copyright (c) Hugging Face Inc.
+  License: Apache-2.0
+  Source: https://github.com/huggingface/transformers
+
+========================================================================
+MIT Licensed Dependencies
+========================================================================
+
+- FastMCP / mcp (Model Context Protocol SDK)
+  Copyright (c) Anthropic, PBC
+  License: MIT
+  Source: https://github.com/modelcontextprotocol/python-sdk
+
+- Pydantic (Data validation)
+  Copyright (c) Samuel Colvin
+  License: MIT
+  Source: https://github.com/pydantic/pydantic
+
+========================================================================
+BSD Licensed Dependencies
+========================================================================
+
+- PyTorch (Deep learning framework, CPU-only build)
+  Copyright (c) Meta Platforms, Inc.
+  License: BSD-3-Clause
+  Source: https://github.com/pytorch/pytorch
+
+- uvicorn (ASGI server)
+  Copyright (c) encode
+  License: BSD-3-Clause
+  Source: https://github.com/encode/uvicorn
+
+- NumPy
+  Copyright (c) NumPy Developers
+  License: BSD-3-Clause
+  Source: https://github.com/numpy/numpy

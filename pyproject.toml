@@ -1,0 +1,70 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kandela-server"
+version = "0.5.0"
+description = "Multi-project long-term memory MCP server with ChromaDB"
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+requires-python = ">=3.11"
+authors = [
+    {name = "Deep-ON Inc."},
+]
+# NOTE: Dependencies are pinned to major version ranges to prevent
+# supply-chain attacks via unexpected major version upgrades.
+# Run `pip-audit` periodically to check for known vulnerabilities:
+#   pip install pip-audit && pip-audit
+dependencies = [
+    "mcp[cli]>=1.0.0,<2",
+    # CRITICAL: chromadb<0.6 고정! 0.6은 데이터 포맷 breaking change (2026-03-22 장애)
+    "chromadb>=0.5.0,<0.6",
+    "sentence-transformers>=3.0.0,<4",
+    "pydantic>=2.0.0,<3",
+    "rank-bm25>=0.2.2,<0.3",
+    "kiwipiepy>=0.18.0,<0.20",
+    "starlette>=0.27.0,<1",
+    "uvicorn>=0.20.0,<1",
+]
+
+[project.optional-dependencies]
+multilingual = [
+    "fugashi>=1.3.0,<2",
+    "unidic-lite>=1.0.8,<2",
+    "jieba>=0.42.1,<1",
+]
+dev = [
+    "pytest>=8.0,<9",
+    "pytest-asyncio>=0.23,<1",
+    "mypy>=1.10,<2",
+    "ruff>=0.5,<1",
+    "httpx>=0.27,<1",
+    "pip-audit>=2.7.0",
+]
+bench = [
+    "anthropic>=0.40.0,<1",
+]
+
+[project.scripts]
+kandela = "memory_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+sources = ["src"]
+packages = ["src/memory_mcp"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,57 @@
+services:
+  kandela:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: mcp
+    container_name: kandela-server
+    restart: unless-stopped
+    ports:
+      - "8321:8321"
+    volumes:
+      - kandela_data:/data/memory_db
+    command: >
+      python -m memory_mcp
+      --transport http
+      --port 8321
+      --db-path /data/memory_db
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MCP_LOG_LEVEL=${MCP_LOG_LEVEL:-INFO}
+      - OMP_NUM_THREADS=2
+    networks:
+      default:
+        aliases:
+          - memory-mcp-server
+          - memory-mcp
+    logging:
+      driver: json-file
+      options:
+        max-size: "50m"
+        max-file: "5"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8321/api/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+          cpus: '2'
+
+
+volumes:
+  kandela_data:
+    # Docker managed volume (works on any platform out of the box).
+    # To use a host bind-mount instead, uncomment and edit below:
+    #   driver: local
+    #   driver_opts:
+    #     type: none
+    #     o: bind
+    #     device: /your/custom/path
