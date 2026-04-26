@@ -40,8 +40,8 @@ Kandela gives your AI persistent memory — so it remembers past decisions, envi
 - **Local Cache + Auto-Sync** — Stop Hook JSONL cache, auto-synced on SessionStart
 - **Web Dashboard** — Per-project memory browser, search, stats, performance monitoring
 - **One-click Install** — Auto-installs hooks + slash commands via `curl ... | bash`
-- **Prompt Guard** — Prevents bad decisions based on stale memories
-- **Circuit Breaker** — Detects repeated failure patterns + auto-stores gotchas
+- **Prompt Guard** — Surfaces stored decisions when prompts conflict with them
+- **Circuit Breaker** — Surfaces past failures when similar patterns recur
 - **Cross-project Visibility** — Per-project searchable settings for cross-search scope control
 - **Multilingual Embeddings** — paraphrase-multilingual-MiniLM-L12-v2 (50+ languages)
 

@@ -27,7 +27,7 @@ All notable changes to Kandela will be documented in this file.
 ### Added
 - Core features: ChromaDB + sentence-transformers, 13 MCP tools
 - Hybrid Search (Semantic + BM25 + RRF)
-- Importance Engine (25 rules + ACT-R decay)
+- Importance Engine (25 rules + ACT-R-inspired exponential decay)
 - Prompt Guard + Circuit Breaker
 - Telegram bot with LLM intent classification
 - Web dashboard with real-time metrics
